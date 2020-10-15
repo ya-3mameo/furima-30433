@@ -2,14 +2,16 @@
 
 ## usersテーブル
 
-| Column    | Type   | Options                   |
-| --------- | ------ | ------------------------- |
-| nickname  | string | null: false, unique: true |
-| email     | string | null: false, unique: true |
-| password  | string | null: false, unique: true |
-| full_name | string | null: false               |
-| furigana  | string | null: false               |
-| birthday  | date   | null: false               |
+| Column               | Type   | Options                   |
+| -------------------- | ------ | ------------------------- |
+| nickname             | string | null: false, unique: true |
+| email                | string | null: false, unique: true |
+| password             | string | null: false, unique: true |
+| family_name          | string | null: false               |
+| first_name           | string | null: false               |
+| family_name_furigana | string | null: false               |
+| first_name_furigana  | string | null: false               |
+| birthday             | date   | null: false               |
 
 ### Association
  - has_many :items
@@ -18,16 +20,17 @@
 
 ## itemsテーブル
 
-| Column      | Type    | Options     |
-| ----------- | ------- | ----------- |
-| name        | string  | null: false |
-| description | text    | null: false |
-| category_id | integer | null: false |
-| status_id   | integer | null: false |
-| burden_id   | integer | null: false |
-| place_id    | integer | null: false |
-| date_id     | integer | null: false |
-| price       | integer | null: false |
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| name        | string     | null: false                    |
+| description | text       | null: false                    |
+| category_id | integer    | null: false                    |
+| status_id   | integer    | null: false                    |
+| burden_id   | integer    | null: false                    |
+| place_id    | integer    | null: false                    |
+| date_id     | integer    | null: false                    |
+| price       | integer    | null: false                    |
+| user_id     | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -56,7 +59,7 @@
 | prefecture_id | integer    | null: false                    |
 | city          | string     | null: false                    |
 | address       | string     | null: false                    |
-| building      | string     | null: false                    |
+| building      | string     |                                |
 | phone_number  | integer    | null: false, unique: true      |
 | purchase      | references | null: false, foreign_key: true |
 
