@@ -1,0 +1,2 @@
+class Burden < ApplicationRecord
+end
