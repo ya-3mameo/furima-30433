@@ -19,7 +19,6 @@ class User < ApplicationRecord
     validates :family_name_furigana
     validates :first_name_furigana
   end
-  
-  validates :birthday, presence: true
 
+  validates :birthday, presence: true
 end
