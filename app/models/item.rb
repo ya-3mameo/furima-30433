@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :status
   belongs_to_active_hash :burden
   belongs_to_active_hash :prefecture
-  belongs_to_active_hash :delivery_days
+  belongs_to_active_hash :delivery_day
 
 
   with_options presence: true do
@@ -18,7 +18,7 @@ class Item < ApplicationRecord
     validates :image
     validates :burden
     validates :prefecture
-    validates :delivery_days
+    validates :delivery_day
     validates :price, format: { with: /\A[0-9]+\z/}
   end
 
