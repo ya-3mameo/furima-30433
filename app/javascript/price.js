@@ -10,4 +10,4 @@ function price (){
   });
 }
 
-window.addEventListener('load', price);
+setInterval(price, 1000);
