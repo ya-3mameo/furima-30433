@@ -22,7 +22,7 @@ RSpec.describe Item, type: :model do
         @item.name = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Name can't be blank")
-      end      
+      end
       it '商品の説明が空では保存できない' do
         @item.description = nil
         @item.valid?
@@ -63,25 +63,24 @@ RSpec.describe Item, type: :model do
       it '価格の範囲が、300円未満だと保存できない' do
         @item.price = '100'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
+        expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
       end
       it '価格の範囲が、9,999,999円だと保存できない' do
         @item.price = '10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include()
+        expect(@item.errors.full_messages).to include
       end
       it '販売価格は全角数字だと場合は保存できない' do
         @item.price = '３４５'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
 
       it 'userが紐づいていないと出品情報は保存されない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User must exist")
+        expect(@item.errors.full_messages).to include('User must exist')
       end
-
     end
   end
 end
