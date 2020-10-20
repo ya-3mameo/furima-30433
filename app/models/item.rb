@@ -27,7 +27,7 @@ class Item < ApplicationRecord
     validates :status_id
     validates :burden_id
     validates :prefecture_id
-    validates :delivery_days_id
+    validates :delivery_day_id
   end
 
   validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 99999999 }
