@@ -36,8 +36,6 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
-
-
   end
 
   private
@@ -47,17 +45,12 @@ class ItemsController < ApplicationController
   end
 
   def move_to_session
-    unless user_signed_in?
-      redirect_to new_user_session_path
-    end
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
   def move_to_index
     @item = Item.find(params[:id])
     @user = User.find(@item.user_id)
-    unless user_signed_in? && current_user == @user
-      redirect_to root_path
-    end 
+    redirect_to root_path unless user_signed_in? && current_user == @user
   end
-
 end
