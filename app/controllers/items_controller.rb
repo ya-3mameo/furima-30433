@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
-  before_action :move_to_session, except: [:index, :show]
-  before_action :set_item, only: [:show, :edit, :update, :move_to_index]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_item, only: [:show, :edit, :update]
   before_action :move_to_index, only: [:edit, :update]
 
   def index
@@ -40,10 +39,6 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :description, :category_id, :status_id, :image, :burden_id, :prefecture_id, :delivery_day_id, :price).merge(user_id: current_user.id)
-  end
-
-  def move_to_session
-    redirect_to new_user_session_path unless user_signed_in?
   end
 
   def move_to_index
