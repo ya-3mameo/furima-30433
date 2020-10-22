@@ -15,26 +15,26 @@
 
 ### Association
  - has_many :items
- - has_many :purchases
+ - has_many :orders
 
 
 ## itemsテーブル
 
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| name             | string     | null: false                    |
-| description      | text       | null: false                    |
-| category_id      | integer    | null: false                    |
-| status_id        | integer    | null: false                    |
-| burden_id        | integer    | null: false                    |
-| prefecture_id    | integer    | null: false                    |
-| delivery_days_id | integer    | null: false                    |
-| price            | integer    | null: false                    |
-| user             | references | null: false, foreign_key: true |
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| name            | string     | null: false                    |
+| description     | text       | null: false                    |
+| category_id     | integer    | null: false                    |
+| status_id       | integer    | null: false                    |
+| burden_id       | integer    | null: false                    |
+| prefecture_id   | integer    | null: false                    |
+| delivery_day_id | integer    | null: false                    |
+| price           | integer    | null: false                    |
+| user            | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- has_one :purchase
+- has_one :order
 
 
 ## ordersテーブル
@@ -48,7 +48,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
-- has_one :delivery
+- has_one :address
 
 
 ## addressesテーブル
@@ -61,9 +61,9 @@
 | house_number  | string     | null: false                    |
 | building      | string     |                                |
 | phone_number  | string     | null: false                    |
-| purchase      | references | null: false, foreign_key: true |
+| order         | references | null: false, foreign_key: true |
 
 
 ### Association
 
-- belongs_to :purchase
+- belongs_to :order
