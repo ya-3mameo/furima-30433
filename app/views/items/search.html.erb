@@ -1,10 +1,4 @@
-<form class="search-form" action="/items/search" method="get">
-  <input name="keyword" class='input-box' placeholder='キーワードから探す'>
-  <button class="search-button">
-    <%= image_tag "search.png", class:"search-icon" %>
-  </button>
-</form>
-
+<%= render "shared/header" %>
 
 <div class='item-contents'>
   <ul class='item-lists'>
@@ -60,3 +54,5 @@
     <% end %>
   </ul>
 </div>
+
+<%= render "shared/footer" %>
